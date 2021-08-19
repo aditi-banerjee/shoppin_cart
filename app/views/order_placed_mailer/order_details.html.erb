@@ -1,0 +1,32 @@
+<p>
+  Hello <%= @user&.name&.titlecase %>,
+</p>
+
+<p>
+  Thank you Placing Order!
+</p>
+
+<p>
+  Below are the details for you order.
+  <table>
+    <tr>
+      <th>Product Name</th>
+      <th>Price per unit</th>
+      <th>Description</th>
+      <th>Ordered Quantity</th>
+      <th>Total price </th>
+    </tr>
+    <% @cart_items.each do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.price %></td>
+        <td><%= item.product.description %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.total_price %></td>
+      </tr>
+    <% end %>
+  </table>
+</p>
+<p>
+You have placed order of total $<%= @cart.total_cart_price %>
+</p>
